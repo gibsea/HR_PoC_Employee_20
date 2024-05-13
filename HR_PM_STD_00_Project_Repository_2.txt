@@ -1,0 +1,45 @@
+CITD_PM_STD_00_Project_Repository_2.txt
+
+PoC - Data Team Project Delivery
+	20240212
+	Olga
+	Steven
+	Jayesh
+	Nikitesh
+	Andy
+	(Sri - DG parts to be included later)
+	
+Subject: Data as an Asset / Data Product
+
+	1. Define a Data Product
+	
+		a. Business View
+		b. Stakeholders
+		c. Dependencies
+
+	2. Delivery Process
+
+		a. Step by Step Refinement
+		b. Collaboration
+		c. Central Documents / Documentation
+		d. Documenta Relationships / Usage Matrix / Lineage
+
+	3. Example - FIN PoC Project
+
+		a. BRD - Initial Business Definition / Requirements
+		b. Step by Step Enrichment with Technical Details
+			1. Process Flows
+			2. Data Glossary
+			3. Central Naming Conventions
+			4. Data Models - Conceptual / Logical / Physical
+		c. Identify and Define Unique Assets
+		d. Ensure Reusability
+		e. Ensure Collaborative Approach
+		f. Maintain Data Catalog
+			1. Top Down - Asset / Objects / Rules
+			2. Add Future Entities - Data Contract
+
+To Do
+
+	1. How to Define / Name a 'Data Product'
+	

@@ -1,0 +1,45 @@
+/*
+	HR_EMP_ETL_EMP_Type.sql
+	
+	created:	20240308	Andy Rupp
+	updated:
+	
+	This is a TEST release.
+	populate the table HR_EMP_TYPE.
+	
+*/
+
+TRUNCATE	TABLE	CITD_D1_DEV.S2_HR.HR_EMP_TYPE
+;
+
+insert	into	CITD_D1_DEV.S2_HR.HR_EMP_TYPE
+		(
+		EMP_TYPE_CD
+,		EMP_TYPE_DESC
+,		DT_CRE_AT
+,		DT_CRE_BY
+,		DT_UPD_AT
+,		DT_UPD_BY
+,		DT_VALID_FROM
+,		DT_VALID_TO
+,		ACTIVE
+		)
+select	EMPLOYMENT_TYPE_CD
+,		EMPLOYMENT_TYPE_DESC
+,		NULL				-- DT_CRE_AT
+,		NULL				-- DT_CRE_BY
+,		LAST_REFRESH_DTM	-- DT_UPD_AT
+,		NULL				-- DT_UPD_BY
+,		NULL				-- DT_VALID_FROM
+,		NULL				-- DT_VALID_TO
+,		STATUS				-- ACTIVE
+from	CITD_D1_DEV.S2_HR.SOURCE_FAKE_HR_EMP_TYPE
+;
+UPDATE	CITD_D1_DEV.S2_HR.HR_EMP_TYPE
+SET		ACTIVE			= '0'
+where	ACTIVE			= 'I'
+;
+UPDATE	CITD_D1_DEV.S2_HR.HR_EMP_TYPE
+SET		ACTIVE			= '1'
+where	ACTIVE			= 'A'
+;

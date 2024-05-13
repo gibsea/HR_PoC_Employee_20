@@ -1,0 +1,40 @@
+/*
+	HR_EMP_ETL_EMP_BU.sql
+	
+	created:	20240310	Andy Rupp
+	updated:
+	
+	This is a TEST release.
+	populate the table HR_FO_BUSINESS_UNIT.
+	
+*/
+
+TRUNCATE	TABLE	CITD_D1_DEV.S2_HR.HR_FO_BUSINESS_UNIT
+;
+INSERT	INTO	CITD_D1_DEV.S2_HR.HR_FO_BUSINESS_UNIT
+		(
+		CMPY_CD
+,		BU_CD
+,		ABBR_BU
+,		NAME_BU
+,		DT_CRE_AT
+,		DT_CRE_BY
+,		DT_UPD_AT
+,		DT_UPD_BY
+,		DT_VALID_FROM
+,		DT_VALID_TO
+,		ACTIVE
+		)
+select	CMPY_ID
+,		BU_ID
+,		NAME_SHORT
+,		BU_NAME
+,		'2000-01-01'
+,		NULL
+,		'2000-01-01'
+,		NULL
+,		'2000-01-01'
+,		'2099-12-31'
+,		ACTIVE
+from	CITD_D1_DEV.S2_REF.ORG_BU
+;

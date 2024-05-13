@@ -1,0 +1,55 @@
+CITD_PM_STD_00_Project_Repository.txt
+
+PoC - Data Team Project Delivery
+
+	initial meeting 20240207
+	Steven * left early
+	Jayesh
+	Nikitesh * left early
+	Andy
+
+	Not Attended
+	Olga
+	(Sri - DG parts to be included later)
+
+Steps
+
+	1. create project entry = CITD_PM_STD_00_Project_Repository.txt
+	
+		a. Unique name
+		b. unique (running) project number
+		c. main stakeholders
+		
+	2. create SharePoint Folder
+	
+		a. FIN_PoC_Project
+		
+	3. Populate with default PM documents
+	
+		a. copy from CITD_PM_Templates	https://kinaxis.sharepoint.com/:f:/r/sites/budataexchange/CITD_KIPI/CIT%20Corporate%20IT/CITD_SN_OpsModel/CITD_PM_Templates?csf=1&web=1&e=BlAzoT
+		b. rename accordingly to new project name
+		c. FIN_PoC_Project_Name
+		
+	4. Delivery Cycle
+	
+		a. Data Analysts
+			a. BRD
+				a. initial requirements
+				b. main stakeholders
+				c. main application / database objects
+				d. main formula - KPI, Transformations
+				e. main Reference Data Sets
+			b. Conceptual Data Model
+				a. XLS Format https://kinaxis.sharepoint.com/:u:/r/sites/budataexchange/CITD_KIPI/CIT%20Corporate%20IT/CITD_Data_Team_2024/Sources/CITD_PM_STD_03_01_Data_Catalog_Conceptional_Model.xlsx.url?csf=1&web=1&e=xFU5Zs
+				b. ARIS Format https://kinaxis.sharepoint.com/:u:/r/sites/budataexchange/CITD_KIPI/CIT%20Corporate%20IT/CITD_Data_Team_2024/Sources/CITD_PM_STD_03_01_Conceptual_Model_Demo.adf?csf=1&web=1&e=TEPJ3t
+				c. Oracle Data Modeler Format CITD_2024_Template
+		b. Data Architects
+			a. see Data Team Operations Model
+		c. Data Engineers
+			a. see Data Team Operations Model
+		d. BI / Reporting
+			a. see Data Team Operations Model
+		
+		e. see Data Team Operations Model https://kinaxis.sharepoint.com/:i:/r/sites/budataexchange/CITD_KIPI/CIT%20Corporate%20IT/CITD_Data_Team_2024/CITD_Operations_Model_2024.jpeg?csf=1&web=1&e=npImRg
+		
+	5. Questions

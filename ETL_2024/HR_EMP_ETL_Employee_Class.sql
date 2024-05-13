@@ -1,0 +1,45 @@
+/*
+	HR_EMP_ETL_Employee_Class.sql
+	
+	created:	20240308	Andy Rupp
+	updated:
+	
+	This is a TEST release.
+	populate the table HR_EMP_CLASS.
+	
+*/
+
+TRUNCATE	TABLE	CITD_D1_DEV.S2_HR.HR_EMP_CLASS
+;
+
+insert	into	CITD_D1_DEV.S2_HR.HR_EMP_CLASS
+		(
+		EMP_CLASS_CD
+,		EMP_CLASS_DESC
+,		DT_CRE_AT
+,		DT_CRE_BY
+,		DT_UPD_AT
+,		DT_UPD_BY
+,		DT_VALID_FROM
+,		DT_VALID_TO
+,		ACTIVE
+		)
+select	EMP_CLASS_CD
+,		EMP_CLASS_DESC
+,		NULL				-- DT_CRE_AT
+,		NULL				-- DT_CRE_BY
+,		LAST_REFRESH_DTM	-- DT_UPD_AT
+,		NULL				-- DT_UPD_BY
+,		NULL				-- DT_VALID_FROM
+,		NULL				-- DT_VALID_TO
+,		STATUS				-- ACTIVE
+from	CITD_D1_DEV.S2_HR.SOURCE_FAKE_HR_EMP_CLASS
+;
+UPDATE	CITD_D1_DEV.S2_HR.HR_EMP_CLASS
+SET		ACTIVE			= '1'
+where	ACTIVE			= 'A'
+;
+UPDATE	CITD_D1_DEV.S2_HR.HR_EMP_CLASS
+SET		ACTIVE			= '0'
+where	ACTIVE			= 'I'
+;

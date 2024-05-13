@@ -1,0 +1,82 @@
+/*
+	HR_EMP_ETL_Employee.sql
+	
+	created:	20240308	Andy Rupp
+	updated:
+	
+	This is a TEST release.
+	populate the table HR_EMP.
+	
+*/
+
+TRUNCATE	TABLE	CITD_D1_DEV.S2_HR.HR_EMP
+;
+
+insert	into	CITD_D1_DEV.S2_HR.HR_EMP
+		(
+		EMPLOYEE_ID
+,		USER_ID
+,		NAME_FIRST
+,		NAME_FAMILY
+,		NAME_MI
+,		NAME_FIRST_PREFERRED
+,		NAME_FAMILY_PREFERRED
+,		E_MAIL
+,		NAME_ACCOUNT
+,		GENDER_CODE
+,		SALUTATION
+,		HONORIFICATION
+,		DT_HIRED
+,		DT_STARTED
+,		DT_CRE_AT
+,		DT_CRE_BY
+,		DT_UPD_AT
+,		DT_UPD_BY
+,		DT_VALID_FROM
+,		DT_VALID_TO
+,		ACTIVE
+		)
+select	EMPLOYEE_ID
+,		USER_ID
+,		FIRST_NAME
+,		LAST_NAME
+,		NULL					-- NAME_MI
+,		NULL					-- NAME_FIRST_PREFERRED
+,		NULL					-- NAME_FAMILY_PREFERRED
+,		EMAIL_ADDRESS			-- E_MAIL
+,		NULL					-- NAME_ACCOUNT
+,		NULL					-- HR_EMP_GENDER_GENDER_CODE
+,		NULL					-- SALUTATION
+,		NULL					-- HONORIFICATION
+,		max(HIRE_DT)			-- DT_HIRED
+,		max(HIRE_DT)			-- DT_STARTED
+,		max(HIRE_DT)			-- DT_CRE_AT
+,		NULL					-- DT_CRE_BY
+,		max(LAST_MODIFIED_DT)	-- DT_UPD_AT
+,		NULL					-- DT_UPD_BY
+,		max(HIRE_DT)			-- DT_VALID_FROM
+,		max(PAYROLL_END_DT)		-- DT_VALID_TO
+,		'1'						-- ACTIVE
+from	CORPITDATAPROD.EDW_INT_TB.EMPLOYEE_JOB
+where	upper(USER_ID)			not like '%ADMIN%'
+and		EMPLOYEE_ID				is not NULL
+and		HIRE_DT					is not NULL
+and		EMAIL_ADDRESS			is not NULL
+group   by
+		EMPLOYEE_ID
+,		USER_ID
+,		FIRST_NAME
+,		LAST_NAME
+,		EMAIL_ADDRESS			-- E_MAIL
+order   by
+        LAST_NAME
+,       FIRST_NAME
+;
+UPDATE	CITD_D1_DEV.S2_HR.HR_EMP
+SET		ACTIVE			= '0'
+where	DT_VALID_TO		IS NOT NULL
+;
+UPDATE	CITD_D1_DEV.S2_HR.HR_EMP
+SET		ACTIVE			= '1'
+where	DT_VALID_TO		IS NULL
+;

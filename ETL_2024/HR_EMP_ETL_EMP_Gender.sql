@@ -1,0 +1,45 @@
+/*
+	HR_EMP_ETL_EMP_Gender.sql
+	
+	created:	20240308	Andy Rupp
+	updated:
+	
+	This is a TEST release.
+	populate the table HR_EMP_GENDER.
+	
+*/
+
+TRUNCATE	TABLE	CITD_D1_DEV.S2_HR.HR_EMP_GENDER
+;
+
+insert	into	CITD_D1_DEV.S2_HR.HR_EMP_GENDER
+		(
+		GENDER_CODE
+,		GENDER_DESC
+,		DT_CRE_AT
+,		DT_CRE_BY
+,		DT_UPD_AT
+,		DT_UPD_BY
+,		DT_VALID_FROM
+,		DT_VALID_TO
+,		ACTIVE
+		)
+select	GENDER_CD
+,		GENDER_DESC
+,		NULL				-- DT_CRE_AT
+,		NULL				-- DT_CRE_BY
+,		LAST_REFRESH_DTM	-- DT_UPD_AT
+,		NULL				-- DT_UPD_BY
+,		'2000-01-01'		-- DT_VALID_FROM
+,		'2099-12-31'		-- DT_VALID_TO
+,		STATUS				-- ACTIVE
+from	CITD_D1_DEV.S2_HR.SOURCE_FAKE_HR_EMP_GENDER
+;
+UPDATE	CITD_D1_DEV.S2_HR.HR_EMP_GENDER
+SET		ACTIVE			= '1'
+where	ACTIVE			= 'A'
+;
+UPDATE	CITD_D1_DEV.S2_HR.HR_EMP_GENDER
+SET		ACTIVE			= '0'
+where	ACTIVE			= 'I'
+;

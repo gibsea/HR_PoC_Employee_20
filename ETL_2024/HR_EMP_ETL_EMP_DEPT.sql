@@ -1,0 +1,40 @@
+/*
+	HR_EMP_ETL_EMP_DEPT.sql
+	
+	created:	20240310	Andy Rupp
+	updated:
+	
+	This is a TEST release.
+	populate the table HR_FO_DEPARTMENT.
+	
+*/
+
+TRUNCATE	TABLE	CITD_D1_DEV.S2_HR.HR_FO_DEPARTMENT
+;
+INSERT	INTO	CITD_D1_DEV.S2_HR.HR_FO_DEPARTMENT
+		(
+		BU_CD
+,		DEPT_CD
+,		ABBR_DEPT
+,		NAME_DEPT
+,		DT_CRE_AT
+,		DT_CRE_BY
+,		DT_UPD_AT
+,		DT_UPD_BY
+,		DT_VALID_FROM
+,		DT_VALID_TO
+,		ACTIVE
+		)
+select	BU_ID
+,		DPT_ID
+,		NAME_SHORT
+,		DPT_NAME
+,		'2000-01-01'
+,		NULL
+,		'2000-01-01'
+,		NULL
+,		'2000-01-01'
+,		'2099-12-31'
+,		ACTIVE
+from	CITD_D1_DEV.S2_REF.ORG_DPT
+;
